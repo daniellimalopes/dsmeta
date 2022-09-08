@@ -1,0 +1,37 @@
+.bannerContainner{
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .image{
+        padding-bottom: 15px;
+        }
+        .title{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            
+            color: #FFFFFF;
+        }
+        .paragrafo{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            
+            color: #FFFFFF;
+        }
+}
+
+
