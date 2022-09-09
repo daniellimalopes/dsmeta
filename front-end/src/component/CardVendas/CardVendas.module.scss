@@ -15,6 +15,9 @@
     .dsmetaFormControlContainer {
         margin-bottom: 16px;
         width: 100%;
+        @media (min-width: 768px) {
+            width: 50%;
+        } 
         .dsmetaFormControl {
             width: 100%;
             height: 46px;
@@ -35,6 +38,16 @@
             font-size: 16px;
             color: #e9e9e9;
             font-weight: 700;
+            @media (min-width: 992px) {
+                .show992 {
+                    display: table-cell;
+                }
+            }
+             @media (min-width: 992px) {
+                .show576 {
+                    display: table-cell;
+                }
+            }
         }
         tbody {
             font-size: 14px;
@@ -55,6 +68,16 @@
                         height: 55px;
                     }
                 } 
+                @media (min-width: 992px) {
+                    .show992 {
+                        display: table-cell;
+                    }
+                }
+                @media (min-width: 992px) {
+                    .show576 {
+                        display: table-cell;
+                    }
+                }
             }
             tr:hover > td {
                 background-color: #384459;
@@ -64,27 +87,11 @@
             }
         }
       }
-  }
- 
+}
+
 .show992 {
     display: none;
-    @media (min-width: 992px) {
-        .show992 {
-            display: table-cell;
-        }
-    }
 }
 .show576 {
     display: none;
-    @media (min-width: 992px) {
-        .show576 {
-            display: table-cell;
-        }
-    }
 }
-
-
-
- 
- 
-
