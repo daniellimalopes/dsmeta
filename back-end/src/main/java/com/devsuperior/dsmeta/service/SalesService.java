@@ -25,7 +25,7 @@ public class SalesService {
 	}
 
 	@Transactional
-	public Page<SalesEntity> findAll(String minDate, String maxDate, Pageable pageable){
+	public Page<SalesEntity> findAll(String minDate, String maxDate, Pageable pageable) {
 
 		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 
