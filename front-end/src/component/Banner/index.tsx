@@ -5,7 +5,7 @@ export default function Banner(){
        <div className={style.bannerContainner}>
            <img className={style.image} src={imageBanner} alt="" />
             <h1 className={style.title}>DSMeta</h1>
-            <p className={style.paragrafo}>Desenvolvido por @devsuperior.ig</p>
+            <p className={style.paragrafo}>Desenvolvido por daniel.lima.lopes@outlook.com</p>
        </div>
            
        

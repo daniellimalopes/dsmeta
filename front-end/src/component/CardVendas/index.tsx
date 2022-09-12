@@ -2,28 +2,50 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BotaoNotificacao from "../BotaoNotificacao";
-import style from "../../../src/component/CardVendas/CardVendas.module.scss"
+import style from "../../../src/component/CardVendas/CardVendas.module.scss";
 import { Sales } from "../models/sales";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 export default function CardVenda() {
 
+  const min = new Date(new Date().setDate(new Date().getDate() - 365));
+  const max = new Date();
+
+  const [minDate, setMinDate] = useState(min);
+  const [maxDate, setMaxDate] = useState(max);
+
   const [sales, setSales] = useState<Sales[]>([])
   useEffect(() => {
-    axios.get("http://localhost:8080/sales?minDate=2022-01-01&maxDate=2022-03-31")
+
+    const minDateFormat = minDate.toISOString().slice(0, 10)
+    const maxDateFormat = maxDate.toISOString().slice(0, 10)
+
+    axios.get(`http://localhost:8080/sales?minDate=${minDateFormat}&maxDate=${maxDateFormat}`)
       .then(response => {
         setSales(response.data.content)
       })
-  }, [])
+  }, [minDate, maxDate])
   return (
     <div className={style.dsmetaCard}>
       <h2 className={style.dsmetaSalesTitle}>Vendas</h2>
       <div>
         <div className={style.dsmetaFormControlContainer}>
-          <input className={style.dsmetaFormControl} type="date" id="date" placeholder="08/092022" required />
+          <DatePicker
+            selected={minDate}
+            onChange={(date: Date) => setMinDate(date)}
+            className={style.dsmetaFormControl}
+            dateFormat="dd/MM/yyyy"
+          />
         </div>
         <div className={style.dsmetaFormControlContainer}>
-          <input className={style.dsmetaFormControl} type="date" id="date" placeholder="08/092022" required />
+          <DatePicker
+            selected={maxDate}
+            onChange={(date: Date) => setMaxDate(date)}
+            className={style.dsmetaFormControl}
+            dateFormat="dd/MM/yyyy"
+          />
         </div>
       </div>
 
@@ -52,7 +74,7 @@ export default function CardVenda() {
                     <td className={style.show992}>11</td>
                     <td>R$ 55300.00</td>
                     <td>
-                      <BotaoNotificacao />
+                      <BotaoNotificacao saleId={sale.id} />
                     </td>
                   </tr>
                 )
@@ -63,7 +85,7 @@ export default function CardVenda() {
         </table>
 
       </div>
-      
+
     </div>
   );
 }

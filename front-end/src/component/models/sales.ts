@@ -1,4 +1,4 @@
-export type Sales ={
+export type Sales = {
 
         id: number;
         data: string;
