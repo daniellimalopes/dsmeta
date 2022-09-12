@@ -1,5 +1,7 @@
 package com.devsuperior.dsmeta.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +37,11 @@ public class SalesController {
 			@RequestParam(value = "maxDate", defaultValue = "") String maxDate, Pageable pageable) {
 
 		return salesService.findAll(minDate, maxDate, pageable);
+	}
+	
+	@GetMapping(value = "/all/sales")
+	public List<SalesEntity> findAll() {
+		return salesService.findAll();
 	}
 
 	@GetMapping(value = "/{id}/notification")

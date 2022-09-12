@@ -3,6 +3,7 @@ package com.devsuperior.dsmeta.service;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,13 @@ public class SalesService {
 
 	}
 
+	
+	public List<SalesEntity> findAll() {
+		return salesRepository.findAll();
+		
+	}
+	
+	
 	@Transactional
 	public Page<SalesEntity> findAll(String minDate, String maxDate, Pageable pageable) {
 
